@@ -108,11 +108,12 @@
     <!-- Popup Form (initially hidden) -->
     <div id="formPopup">
         <button id="closeButton" onclick="closePopup()">X</button>
+        <!-- Embed the Google Apps Script form in an iframe -->
         <iframe src="https://script.google.com/macros/s/AKfycbx8l0HsAqb9-oq3uCUeedgih1Ja33vWg0zbPXBb9tiNFAqDkUtwds4w5XtJm327O8RebQ/exec"></iframe>
     </div>
 
     <script>
-        // Function to open the popup
+        // Function to open the popup and load the form
         function openPopup() {
             document.getElementById('formPopup').style.display = 'block';  // Show the popup
         }
