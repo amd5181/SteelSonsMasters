@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Steel Sons Masters Fantasy Challenge</title>
+    <script>
+        function openForm() {
+            document.getElementById("formPopup").style.display = "block";
+        }
+        function closeForm() {
+            document.getElementById("formPopup").style.display = "none";
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #formPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            border: 2px solid black;
+            padding: 20px;
+            z-index: 1000;
+        }
+        iframe {
+            width: 100%;
+            height: 90%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Steel Sons Masters Fantasy Challenge</h1>
+    <p>Pick 5 golfers under the salary cap and compete for the best score!</p>
+
+    <button onclick="openForm()">Enter Your Picks</button>
+    <button onclick="window.location.href='leaderboard.html'">View Standings</button>
+
+    <div id="formPopup">
+        <button onclick="closeForm()">Close</button>
+        <iframe src="YOUR_GOOGLE_FORM_URL_HERE"></iframe>
+    </div>
+
+</body>
+</html>
