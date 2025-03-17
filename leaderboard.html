@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Steel Sons Masters Leaderboard</title>
+    <script>
+        function fetchLeaderboard() {
+            fetch("YOUR_GOOGLE_SHEETS_API_URL_HERE")
+                .then(response => response.json())
+                .then(data => {
+                    let sortedData = data.sort((a, b) => a.score - b.score);
+                    document.getElementById("leaderboard").innerHTML = sortedData.map(
+                        entry => `<tr><td>${entry.name}</td><td>${entry.score}</td></tr>`
+                    ).join("");
+                })
+                .catch(err => console.error("Error fetching data:", err));
+        }
+        window.onload = fetchLeaderboard;
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 60%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Steel Sons Masters Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard">
+            <tr><td>Loading...</td><td>...</td></tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
