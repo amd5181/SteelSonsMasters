@@ -4,99 +4,243 @@
   <meta charset="UTF-8">
   <title>2025 Steel Sons Masters Pool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Tailwind CSS & DaisyUI via CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.5.3/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.1/dist/full.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #0B3D02; /* deep green */
       --secondary: #FFD700; /* gold */
+      --white: #fff;
+      --dark: #333;
+      --overlay: rgba(0, 0, 0, 0.5);
+      --shadow: rgba(0,0,0,0.15);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
-      background: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      background: #f4f4f4;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    /* Hero Section */
+    header {
+      position: relative;
+      width: 100%;
+      height: 50vh;
+      background: url('https://source.unsplash.com/1600x900/?golf') no-repeat center/cover;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+    }
+    header h1 {
+      position: relative;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--white);
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px var(--shadow);
+    }
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      background: var(--secondary);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #e6c200;
+    }
+    /* Form Section */
+    .form-section {
+      width: 100%;
+      padding: 20px;
+      background: var(--white);
       color: var(--primary);
     }
-    /* Override DaisyUI defaults as needed */
-    .hero-overlay { background: rgba(11,61,2,0.6); }
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .form-field {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .form-field label {
+      width: 100px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .form-field input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-field button.small-btn {
+      margin-left: 10px;
+      padding: 10px 16px;
+      background: var(--secondary);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--primary);
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .form-field button.small-btn:hover {
+      background: #e6c200;
+    }
+    .submit-btn {
+      background: var(--secondary);
+      color: var(--primary);
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background: #e6c200;
+    }
+    .team-container {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .team-container h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .salary-total {
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    /* Leaderboard Section */
+    .leaderboard-section {
+      padding: 20px;
+      background: var(--white);
+    }
+    .leaderboard-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .leaderboard-table th, .leaderboard-table td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    .leaderboard-table th {
+      background: #f7f7f7;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #eee;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .form-field label {
+        width: 80px;
+      }
+    }
   </style>
 </head>
-<body class="bg-gray-100">
-  <!-- Hero Header -->
-  <header class="hero min-h-screen" style="background-image: url('https://source.unsplash.com/1920x1080/?golf');">
-    <div class="hero-overlay"></div>
-    <div class="hero-content text-center text-white">
-      <div class="max-w-md">
-        <h1 class="text-5xl font-bold">2025 Steel Sons Masters Pool</h1>
-        <div class="mt-6">
-          <a href="https://script.google.com/macros/s/AKfycby7dC7hzFQ16l8tSPF28MAX92ZIB0TRCjfqpjR9ivjhwaFJ5OSjxz8A8qD6Jlnfbjd2gQ/exec" 
-             target="_blank" 
-             class="btn btn-primary btn-lg">
-            Enter Pool
-          </a>
-        </div>
-      </div>
-    </div>
+<body>
+  <!-- Hero Section -->
+  <header>
+    <h1>2025 Steel Sons Masters Pool</h1>
+    <nav>
+      <a href="https://script.google.com/macros/s/AKfycby7dC7hzFQ16l8tSPF28MAX92ZIB0TRCjfqpjR9ivjhwaFJ5OSjxz8A8qD6Jlnfbjd2gQ/exec" target="_blank">
+        Enter Pool
+      </a>
+    </nav>
   </header>
   
-  <!-- Main Content -->
-  <main class="container mx-auto py-12">
-    <h2 class="text-4xl font-bold text-center mb-8 text-green-900">Live Leaderboard</h2>
-    <div id="leaderboard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Leaderboard cards will be injected here -->
-    </div>
-  </main>
+  <!-- Form Section (if needed later) -->
+  <!-- For now we'll leave it out since the pool form is on another page -->
+  
+  <!-- Leaderboard Section -->
+  <section class="leaderboard-section">
+    <h2>Live Leaderboard</h2>
+    <!-- This table is a placeholder. You can later integrate live updates here. -->
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Player One</td>
+          <td>68</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Player Two</td>
+          <td>70</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Player Three</td>
+          <td>72</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
   
   <!-- Footer -->
-  <footer class="text-center py-4 bg-gray-200">
-    <p class="text-gray-700">© 2025 Steel Sons Masters Pool — Good luck to all entrants!</p>
+  <footer>
+    © 2025 Steel Sons Masters Pool — Good luck to all entrants!
   </footer>
-  
-  <script>
-    // Replace this simulated data function with a real fetch() from your Sheets API or endpoint.
-    function fetchLeaderboardData() {
-      // Simulated data for demonstration:
-      return new Promise(resolve => {
-        const data = [
-          { "rank": 1, "player": "Player One", "score": 68 },
-          { "rank": 2, "player": "Player Two", "score": 70 },
-          { "rank": 3, "player": "Player Three", "score": 72 },
-          { "rank": 4, "player": "Player Four", "score": 73 },
-          { "rank": 5, "player": "Player Five", "score": 75 }
-        ];
-        setTimeout(() => resolve(data), 500);
-      });
-    }
-    
-    function renderLeaderboard(data) {
-      const container = document.getElementById('leaderboard');
-      container.innerHTML = '';
-      data.forEach(entry => {
-        const card = document.createElement('div');
-        card.className = 'card bg-white shadow-xl';
-        card.innerHTML = `
-          <div class="card-body">
-            <h2 class="card-title">#${entry.rank} – ${entry.player}</h2>
-            <p class="text-lg">Score: ${entry.score}</p>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-    }
-    
-    function updateLeaderboard() {
-      fetchLeaderboardData()
-        .then(data => {
-          renderLeaderboard(data);
-        })
-        .catch(err => {
-          console.error('Error fetching leaderboard:', err);
-        });
-    }
-    
-    // Initial load
-    updateLeaderboard();
-    // Update leaderboard every 30 seconds without reloading the page.
-    setInterval(updateLeaderboard, 30000);
-  </script>
 </body>
 </html>
