@@ -1,74 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steel Sons Masters Fantasy Challenge</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f9fa;
-            padding: 50px;
-        }
-
-        h1 {
-            color: #2c3e50;
-        }
-
-        p {
-            font-size: 18px;
-            color: #333;
-        }
-
-        .button-container {
-            margin-top: 30px;
-        }
-
-        button {
-            font-size: 18px;
-            padding: 15px 25px;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .enter-button {
-            background-color: #28a745; /* green color */
-            color: white;
-        }
-
-        .enter-button:hover {
-            background-color: #218838; /* darker green */
-        }
-
-        .standings-button {
-            background-color: #007bff; /* blue color */
-            color: white;
-        }
-
-        .standings-button:hover {
-            background-color: #0056b3; /* darker blue */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>2025 Steel Sons Masters Pool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #e6e6e6;
+      color: #013220;
+    }
+    header {
+      background: url('https://source.unsplash.com/1600x400/?golf') no-repeat center/cover;
+      padding: 20px;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      background: rgba(0,0,0,0.4);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    header h1 {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      font-size: 2.5em;
+      margin: 0;
+      z-index: 1;
+    }
+    nav {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-top: 10px;
+    }
+    nav a {
+      color: #FFD700;
+      background: #013220;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #e6c200;
+    }
+    main {
+      padding: 20px;
+      background: #fff;
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .leaderboard {
+      text-align: center;
+    }
+    .leaderboard h2 {
+      margin-bottom: 20px;
+      color: #013220;
+    }
+    .leaderboard table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .leaderboard th, .leaderboard td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .leaderboard th {
+      background: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
-
-    <h1>Welcome to the Steel Sons Masters Fantasy Challenge</h1>
-    <p>Pick 5 golfers under the salary cap and compete for the best score!</p>
-
-    <div class="button-container">
-        <!-- Enter Picks Button -->
-        <a href="https://script.google.com/macros/s/AKfycbx8l0HsAqb9-oq3uCUeedgih1Ja33vWg0zbPXBb9tiNFAqDkUtwds4w5XtJm327O8RebQ/exec" target="_blank">
-            <button class="enter-button">Enter Your Picks</button>
-        </a>
-
-        <!-- View Standings Button (This should link to your leaderboard page) -->
-        <a href="leaderboard.html">
-            <button class="standings-button">View Standings</button>
-        </a>
-    </div>
-
+  <header>
+    <h1>2025 Steel Sons Masters Pool</h1>
+    <nav>
+      <a href="https://script.google.com/macros/s/AKfycby7dC7hzFQ16l8tSPF28MAX92ZIB0TRCjfqpjR9ivjhwaFJ5OSjxz8A8qD6Jlnfbjd2gQ/exec" target="_blank">
+        Enter Pool
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section class="leaderboard">
+      <h2>Leaderboard</h2>
+      <!-- Leaderboard content will go here -->
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Placeholder rows -->
+          <tr>
+            <td>1</td>
+            <td>Player One</td>
+            <td>68</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Player Two</td>
+            <td>70</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Player Three</td>
+            <td>72</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 </body>
 </html>
